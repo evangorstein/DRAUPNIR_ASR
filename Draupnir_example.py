@@ -12,7 +12,7 @@ import os,sys
 from argparse import RawTextHelpFormatter
 local_repository=True
 if local_repository:
-    sys.path.insert(1,"/home/lys/Dropbox/PhD/DRAUPNIR_ASR/draupnir/src")
+    sys.path.insert(1,"/Users/evangorstein/Documents/SolisLab/PhyloEmbeddings/DRAUPNIR_ASR/draupnir/src")
     import draupnir
 else:#pip installed module
     import draupnir
