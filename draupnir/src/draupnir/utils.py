@@ -510,13 +510,13 @@ def calculate_patristic_distance(name_file,combined_dict,nodes_and_leafs_names,t
         print("Dataset larger than 200 sequences: Using R script for patristic distances (cladistic matrix is NOT available)!")
         warnings.warn("Dataset larger than 200 sequences: Requires R and the ape library")
         command = 'Rscript'
-        #path2script = '/home/lys/Dropbox/PhD/DRAUPNIR/Calculate_Patristic.R'
-        path2script = "Calculate_Patristic.R"
+        path2script = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Calculate_Patristic.R")
         if tree_file:
-            new_tree = work_dir +tree_file.split(".")[0]+".newick"
-            new_tree_format8 = work_dir  + tree_file.split(".")[0] + ".format8newick"
-            new_tree_format6 = work_dir  + tree_file.split(".")[0] + ".format6newick"
-            new_tree_format7 = work_dir  + tree_file.split(".")[0] + ".format7newick"
+            tree_base = os.path.splitext(tree_file)[0]
+            new_tree = work_dir + tree_base + ".newick"
+            new_tree_format8 = work_dir + tree_base + ".format8newick"
+            new_tree_format6 = work_dir + tree_base + ".format6newick"
+            new_tree_format7 = work_dir + tree_base + ".format7newick"
         else:
             new_tree = work_dir + "{}/{}.newick".format(storage_folder,name_file)
             new_tree_format8 = work_dir + "{}/{}.format8newick".format(storage_folder,name_file)
@@ -547,10 +547,11 @@ def calculate_patristic_distance(name_file,combined_dict,nodes_and_leafs_names,t
 
     else:
         if tree_file:
-            new_tree = work_dir + "/" + tree_file.split(".")[0] +".newick"
-            new_tree_format8 = work_dir + "/" + tree_file.split(".")[0] + ".format8newick"
-            new_tree_format6 = work_dir + "/" + tree_file.split(".")[0] + ".format6newick"
-            new_tree_format7 = work_dir + "/" + tree_file.split(".")[0] + ".format7newick"
+            tree_base = os.path.splitext(tree_file)[0]
+            new_tree = work_dir + "/" + tree_base + ".newick"
+            new_tree_format8 = work_dir + "/" + tree_base + ".format8newick"
+            new_tree_format6 = work_dir + "/" + tree_base + ".format6newick"
+            new_tree_format7 = work_dir + "/" + tree_base + ".format7newick"
         else:
             new_tree = work_dir + "/{}/{}.newick".format(storage_folder,name_file)
             new_tree_format8 = work_dir + "/{}/{}.format8newick".format(storage_folder,name_file)
