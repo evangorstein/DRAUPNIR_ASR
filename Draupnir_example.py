@@ -12,7 +12,7 @@ import torch
 import argparse
 import os,sys
 from argparse import RawTextHelpFormatter
-local_repository=True
+local_repository=False
 if local_repository:
     sys.path.insert(1,"/home/lys/Dropbox/PhD/DRAUPNIR_ASR/draupnir/src")
     import draupnir
@@ -148,7 +148,8 @@ if __name__ == "__main__":
             device = "cuda"
         else:
             device= "cpu"
-            raise warnings.warn("Cuda not found, falling back to cpu")
+            args.use_cuda = False
+            warnings.warn("Cuda not found, falling back to cpu")
         torch.set_default_device(device)
     else:
         torch.set_default_tensor_type(torch.DoubleTensor)
