@@ -561,7 +561,6 @@ def draupnir_sample(train_load,
                     params_config,
                     n_samples,
                     args,
-                    device,
                     script_dir,
                     results_dir,
                     graph_coo=None,
@@ -576,7 +575,6 @@ def draupnir_sample(train_load,
     :param dict params_config
     :param int n_samples
     :param namedtuple args
-    :param str device
     :param str script_dir
     :param str results_dir
     :param graph graph_coo: graph that embedds the tree into a COO graph that works with pytorch geometric
