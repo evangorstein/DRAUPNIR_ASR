@@ -33,7 +33,8 @@ def available_datasets(print_dict = False):
                 "PF00400": None, # 125 real sequences
                 "PF00400_beta":None,#TEST DATA
                 "aminopeptidase":  None, #another real sequences example
-                "PF00096": None} #another real sequences example
+                "PF00096": None, #another real sequences example
+                "simulations_COG28-l100-s1-a0.5": "COG28"}
     if print_dict:
         pprint.pprint(datasets)
     datasets_full_names = {"benchmark_randall_original_naming":"Randall's Coral fluorescent proteins (CFP) benchmark dataset",  # uses the original tree and it's original node naming
@@ -53,7 +54,8 @@ def available_datasets(print_dict = False):
                 "PF00400":"WD40 125 sequences",
                 "PF00400_beta": "WD40 125 sequences", #TODO:Remove
                 "aminopeptidase":"Amino Peptidase",
-                "PF00096":"PF00096 protein kinases"}
+                "PF00096":"PF00096 protein kinases",
+                "simulations_COG28-l100-s1-a0.5":"1246 leaves Simulation COG28"}
     return datasets,datasets_full_names
 def create_draupnir_dataset(name,use_custom,script_dir,args,build=False,fasta_file=None,tree_file=None,alignment_file=None):
     """In:
